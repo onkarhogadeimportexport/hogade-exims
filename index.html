@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hogade Exims - Global Import Export Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f7fb;
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    /* ===== Disclaimer Banner ===== */
+    .disclaimer-banner {
+      background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+      color: white;
+      text-align: center;
+      padding: 12px 5%;
+      font-size: 0.9rem;
+      font-weight: 500;
+      position: relative;
+      z-index: 1001;
+      box-shadow: 0 2px 10px rgba(255, 107, 107, 0.3);
+    }
+
+    .disclaimer-banner i {
+      margin-right: 8px;
+    }
+
+    /* ===== Header ===== */
+    header {
+      background: linear-gradient(90deg, #0a2540, #1a5a8c);
+      color: #fff;
+      padding: 20px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-design {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e6b325, #ffd700);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0a2540;
+      font-weight: bold;
+      border: 3px solid #e6b325;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(230, 179, 37, 0.3);
+    }
+
+    .logo-design::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: rotate(45deg);
+      animation: shine 3s infinite linear;
+    }
+
+    .logo-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 5px;
+    }
+
+    .logo-inner .company-name {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .logo-inner .tagline {
+      font-size: 7px;
+      font-weight: 600;
+      margin-top: 2px;
+      color: #0a2540;
+    }
+
+    .logo-text h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #e6b325;
+    }
+
+    .logo-text p {
+      font-size: 0.9rem;
+      color: #c5d4eb;
+      margin-top: -5px;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+
+    /* ===== Navigation ===== */
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
+      transition: all 0.3s ease;
+      padding: 5px 0;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background: #e6b325;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #e6b325;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      background: linear-gradient(rgba(10, 37, 64, 0.8), rgba(10, 37, 64, 0.9)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+      height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      padding: 0 20px;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .hero-content h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #e6b325;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 1.3rem;
+      color: #e3e3e3;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #e6b325;
+      color: #0a2540;
+      padding: 14px 35px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(230, 179, 37, 0.3);
+      font-size: 1.1rem;
+    }
+
+    .btn:hover {
+      background: #fff;
+      color: #0a2540;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(230, 179, 37, 0.4);
+    }
+
+    @keyframes fadeInUp {
+      0% {opacity: 0; transform: translateY(50px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    /* ===== Section Styles ===== */
+    main {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 5% 100px;
+    }
+
+    section {
+      margin-bottom: 80px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      padding: 60px 50px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, #e6b325, #0a2540);
+    }
+
+    section:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    h2 {
+      color: #0a2540;
+      margin-bottom: 30px;
+      font-size: 2.2rem;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: #e6b325;
+      margin-top: 12px;
+      border-radius: 2px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    /* ===== About Section ===== */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-text {
+      padding-right: 20px;
+    }
+
+    .about-image {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+
+    /* ===== Services Section ===== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .service-card {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 30px 25px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid #eaeaea;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, #e6b325, #0a2540);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: #0a2540;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: #0a2540;
+    }
+
+    .service-card p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* ===== Products Section ===== */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border: 1px solid #f0f0f0;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+    }
+
+    .product-image {
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.1);
+    }
+
+    .product-content {
+      padding: 25px;
+    }
+
+    .product-content h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: #0a2540;
+    }
+
+    .product-content p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* ===== Contact Section ===== */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .contact-icon {
+      background: #e6b325;
+      color: #0a2540;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .contact-details h3 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      color: #0a2540;
+    }
+
+    .contact-details p, .contact-details a {
+      color: #555;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-details a:hover {
+      color: #e6b325;
+    }
+
+    .contact-form {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 12px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #0a2540;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: border 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #e6b325;
+    }
+
+    .form-group textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background: #0a2540;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .submit-btn:hover {
+      background: #e6b325;
+      color: #0a2540;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(10, 37, 64, 0.2);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: linear-gradient(90deg, #0a2540, #1a5a8c);
+      color: white;
+      padding: 50px 5% 30px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column h3 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      color: #e6b325;
+      position: relative;
+      display: inline-block;
+    }
+
+    .footer-column h3::after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: #e6b325;
+      margin-top: 8px;
+    }
+
+    .footer-column p {
+      color: #c5d4eb;
+      margin-bottom: 15px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #c5d4eb;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links a:hover {
+      color: #e6b325;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: #e6b325;
+      color: #0a2540;
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #c5d4eb;
+      font-size: 0.9rem;
+    }
+
+    .copyright span {
+      color: #e6b325;
+      font-weight: 600;
+    }
+
+    /* ===== Responsive Styles ===== */
+    @media (max-width: 992px) {
+      .about-content,
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-text {
+        padding-right: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 5%;
+      }
+      
+      .logo-text h1 {
+        font-size: 1.5rem;
+      }
+      
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #0a2540;
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+      
+      nav.active {
+        display: flex;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero-content h2 {
+        font-size: 2.2rem;
+      }
+      
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+      
+      section {
+        padding: 40px 30px;
+      }
+      
+      .services-grid,
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-content h2 {
+        font-size: 1.8rem;
+      }
+      
+      section {
+        padding: 30px 20px;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .logo-design {
+        height: 60px;
+        width: 60px;
+      }
+      
+      .logo-inner .company-name {
+        font-size: 10px;
+      }
+      
+      .logo-inner .tagline {
+        font-size: 6px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="disclaimer-banner">
+    <i class="fas fa-exclamation-triangle"></i>
+    <strong>Important Notice:</strong> Hogade Exims is currently in the planning phase and has not yet registered with the Indian government. This website is for demonstration purposes only.
+  </div>
+
+  <header>
+    <div class="logo-container">
+      <div class="logo-design">
+        <div class="logo-inner">
+          <div class="company-name">HOGADE<br>EXIMS</div>
+          <div class="tagline">GLOBAL TRADE</div>
+        </div>
+      </div>
+      <div class="logo-text">
+        <h1>Hogade Exims</h1>
+        <p>Global Import Export Solutions</p>
+      </div>
+    </div>
+    
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+    
+    <nav id="main-nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2>Connecting Markets Worldwide</h2>
+      <p>Hogade Exims – Your trusted global partner for import & export solutions. We bring quality products, seamless logistics, and unmatched reliability to businesses worldwide.</p>
+      <a href="#products" class="btn">Explore Our Products</a>
+    </div>
+  </section>
+
+  <main>
+    <section id="about">
+      <h2>About Us</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Founded by <strong>Mr. Onkar Hogade</strong>, Hogade Exims is an emerging force in international trade with a focus on quality and reliability. We specialize in connecting global markets with premium products from India.</p>
+          <p>Our vision is to build a sustainable and transparent trade network that uplifts businesses and drives global prosperity through ethical practices and exceptional service.</p>
+          <p>With years of experience in international trade, we understand the nuances of global markets and work diligently to ensure our clients receive the best products and services.</p>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="International Trade" />
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2>Our Services</h2>
+      <p>We offer comprehensive import and export solutions tailored to meet your business needs.</p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-seedling"></i>
+          </div>
+          <h3>Agricultural Commodities</h3>
+          <p>Export of high-quality agricultural products including grains, pulses, and specialty crops from India's fertile regions.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-industry"></i>
+          </div>
+          <h3>Industrial Materials</h3>
+          <p>Supply of industrial raw materials and machinery to support manufacturing and production sectors worldwide.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-tshirt"></i>
+          </div>
+          <h3>Textile & Fabric</h3>
+          <p>Export of premium Indian textiles and fabrics known for their quality, craftsmanship, and unique designs.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-truck-loading"></i>
+          </div>
+          <h3>Logistics & Customs</h3>
+          <p>End-to-end logistics solutions including shipping, documentation, and customs clearance for seamless trade.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>Global Sourcing</h3>
+          <p>Strategic partnerships and sourcing solutions to connect businesses with reliable suppliers across the globe.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>Trade Consultation</h3>
+          <p>Expert guidance on international trade regulations, market trends, and business expansion strategies.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="products">
+      <h2>Featured Products</h2>
+      <p>Discover our premium selection of products that showcase the best of Indian craftsmanship and quality.</p>
+      
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2158&q=80" alt="Indian Textiles" />
+          </div>
+          <div class="product-content">
+            <h3>Premium Indian Fabrics</h3>
+            <p>We export high-quality Indian textiles including cotton, silk, linen, and handloom fabrics. Our fabrics are known for their exquisite patterns, vibrant colors, and superior quality that meets international sta
