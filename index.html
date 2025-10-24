@@ -1192,15 +1192,15 @@
     </div>
   </footer>
 
-  <script>
+<script>
     // Mobile menu toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const mainNav = document.getElementById('main-nav');
-    
+
     mobileMenuBtn.addEventListener('click', () => {
       mainNav.classList.toggle('active');
     });
-    
+
     // Close mobile menu when clicking on a link
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
@@ -1208,18 +1208,55 @@
         mainNav.classList.remove('active');
       });
     });
-    
-    // Form submission for FormSubmit with auto-reply
+
+    // Professional Form Submission Confirmation
     const contactForm = document.getElementById('contactForm');
     contactForm.addEventListener('submit', (e) => {
-      // Let FormSubmit handle everything including auto-reply emails
-      // Show confirmation message
-      alert('✓ Thank you for your message! We have received your enquiry and you will receive a confirmation email shortly.');
+      // Get customer details for personalized confirmation
+      const customerName = document.getElementById('name').value;
+      const customerEmail = document.getElementById('email').value;
+      const customerSubject = document.getElementById('subject').value;
       
-      // Reset form after submission
+      // Professional confirmation message
+      const confirmationMessage = `🏢 HOGADE EXIMS - CONFIRMATION RECEIPT
+
+Dear ${customerName},
+
+Thank you for choosing Hogade Exims for your import-export requirements.
+
+ENQUIRY DETAILS:
+• Reference: #HE${Date.now().toString().slice(-6)}
+• Subject: ${customerSubject}
+• Email: ${customerEmail}
+• Date: ${new Date().toLocaleDateString('en-IN')}
+
+We have successfully received your enquiry and our team is currently reviewing your requirements.
+
+NEXT STEPS:
+1. Our specialist will contact you within 24 hours
+2. We'll provide customized solutions based on your needs
+3. Discussion of pricing, logistics, and delivery timelines
+
+For immediate assistance, please contact:
+📞 +91 7743882756
+📧 onkarhogade.importexport@gmail.com
+
+We appreciate your interest in Hogade Exims and look forward to serving your global trade needs.
+
+Best Regards,
+Onkar Hogade
+Founder & CEO
+Hogade Exims
+Global Import Export Solutions
+`;
+
+      // Show professional confirmation
+      alert(confirmationMessage);
+      
+      // Let FormSubmit handle the submission
       setTimeout(() => {
         contactForm.reset();
-      }, 1000);
+      }, 3000);
     });
 
     // Add smooth scrolling for all links
