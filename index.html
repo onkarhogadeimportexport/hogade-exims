@@ -1108,12 +1108,8 @@
         </div>
         
         <div class="contact-form">
-          <!-- FORM SUBMIT INTEGRATION - WORKING VERSION -->
-          <form id="contactForm" action="https://formsubmit.co/onkarhogade.importexport@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="New Website Enquiry - Hogade Exims">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            
+          <!-- GetForm Integration -->
+          <form id="contactForm" action="https://getform.io/f/bllqdvjb" method="POST">
             <div class="form-group">
               <label for="name">Your Name</label>
               <input type="text" id="name" name="name" placeholder="Enter your full name" required>
@@ -1133,6 +1129,9 @@
               <label for="message">Your Message</label>
               <textarea id="message" name="message" placeholder="Tell us about your requirements..." required></textarea>
             </div>
+            
+            <!-- Hidden Honeypot for Spam Prevention -->
+            <input type="hidden" name="_gotcha" style="display:none">
             
             <button type="submit" class="submit-btn">Send Message</button>
           </form>
@@ -1208,7 +1207,7 @@
       });
     });
 
-    // Professional Form Submission Confirmation - WORKING VERSION
+    // Professional Form Submission Confirmation
     const contactForm = document.getElementById('contactForm');
     contactForm.addEventListener('submit', (e) => {
       // Get customer details for personalized confirmation
@@ -1252,15 +1251,15 @@ Global Import Export Solutions
       // Show professional confirmation
       alert(confirmationMessage);
       
-      // IMPORTANT: Let the form continue submitting to FormSubmit
+      // IMPORTANT: Let the form continue submitting to GetForm
       // The form will automatically submit after this function completes
       // Reset form after 3 seconds
       setTimeout(() => {
         contactForm.reset();
       }, 3000);
       
-      // Don't prevent default - let FormSubmit work!
-      // The form will submit normally to FormSubmit
+      // Don't prevent default - let GetForm work!
+      // The form will submit normally to GetForm
     });
 
     // Add smooth scrolling for all links
